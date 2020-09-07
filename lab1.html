@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>Таблица умножения без ng-repeat</p>
+	<input type="text" ng-model="num">
+		<p>{{num}} * 1 = <span ng-bind="1 * num"></span></p>
+		<p>{{num}} * 2 = <span ng-bind="2 * num"></span></p>
+		<p>{{num}} * 3 = <span ng-bind="3 * num"></span></p>
+		<p>{{num}} * 4 = <span ng-bind="4 * num"></span></p>
+		<p>{{num}} * 5 = <span ng-bind="5 * num"></span></p>
+		<p>{{num}} * 6 = <span ng-bind="6 * num"></span></p>
+		<p>{{num}} * 7 = <span ng-bind="7 * num"></span></p>
+		<p>{{num}} * 8 = <span ng-bind="8 * num"></span></p>
+		<p>{{num}} * 9 = <span ng-bind="9 * num"></span></p>
+    
+    
+    
+    <p>Таблица умножения с ng-repeat</p>
+    <input type="text" ng-model="num">
+    <div ng-repeat="x in nums">
+    	<p>{{num}} * {{x}} = <span ng-bind="x * num"></span></p>
+    </div>
+    
+    
+    
+</div>
+<script>
+var app = angular.module("myApp", []);
+    app.controller("myCtrl", function($scope) {
+    $scope.num = "1";
+    $scope.nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9"] });
+</script>
+
+</body>
+</html>
