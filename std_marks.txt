@@ -19,7 +19,7 @@ app.controller('arrCtrl', function($scope) {
         {"name" : "Petrov Petr", "mark" : "6"},
         {"name" : "Svetlakov Evgheni", "mark" : "7"},
         {"name" : "Tom Cruz", "mark" : "8"},
-        {"name" : "Janna Frische", "city" : "10"},
+        {"name" : "Janna Frische", "mark" : "10"},
         {"name" : "Vladimir Putin" ,"mark" : "10"},
         {"name" : "Igor Voitenko", "mark" : "9"}
     ];
