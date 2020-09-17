@@ -5,10 +5,9 @@
 
 <div ng-app="myApp" ng-controller="myCtrl">
 
-Число = <input type="text" ng-model="number">
-Степень = <input type="text" ng-model="power"><br>
-<br>
-Результат = {{count()}}
+Число = <input type="text" ng-model="number" ng-init="number=1">
+<br><br><br>
+Результат : {{number}}^2 = {{count()}}
 
 </div>
 
@@ -16,7 +15,7 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.count = function() {
-        return Math.pow($scope.number, $scope.power);
+        return Math.pow($scope.number, 2);
         
     };
 });
