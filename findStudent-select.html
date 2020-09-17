@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="arrCtrl">
+
+<select ng-model="nameStudent">
+<option ng-repeat="x in students" ng-value="{{x}}">{{x.firstName}}</option>
+</select>
+
+<h1>{{nameStudent.firstName}} {{nameStudent.lastName}} - {{nameStudent.mark}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('arrCtrl', function($scope) {
+    $scope.students = [
+        {"firstName" : "Ivanov", "lastName" : "Ivan", "mark" : "6"},
+        {"firstName" : "Petrov", "lastName" : "Petr", "mark" : "6"},
+        {"firstName" : "Svetlakov", "lastName" : "Evgheni", "mark" : "7"},
+        {"firstName" : "Tom", "lastName" : "Cruz", "mark" : "8"},
+        {"firstName" : "Janna", "lastName" : "Frische", "mark" : "10"},
+        {"firstName" : "Vladimir", "lastName" : "Putin" ,"mark" : "10"},
+        {"firstName" : "Igor", "lastName" : "Voitenko", "mark" : "9"}
+    ];
+});
+</script>
+
+</body>
+</html>
