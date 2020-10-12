@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+	<title>Автобусы</title>
+</head>
+<style type="text/css">
+	body {
+		display: flex;
+		justify-content: center;
+		background-color: silver;
+		font-family: sans-serif;
+	}
+	.form {
+		background-color: gray;
+		width: 250px;
+		height: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.input_form {
+		margin-bottom: 15px;
+	}
+	.menu {
+		height: 47px;
+		position: absolute;
+	}
+	.nav:link, .nav:visited {
+  		background-color: gray;
+  		color: white;
+  		padding: 14px 25px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+	}
+
+	.nav:hover, .nav:active {
+ 		background-color: black;
+ 		color: red;
+	}
+	.autobus {
+		margin-top: 20px;
+	}
+	.about {
+		padding-top: 60px;
+	}
+	.map {
+		display: flex;
+		position: absolute;
+		margin-left: -950px;
+		margin-top: 200px;
+		width: 952px;
+		height: 518px;
+		border: 5px solid gray;
+	}
+	.autobus_time {
+		margin-top: 200px;
+		margin-left: 100px;
+		position: absolute;
+	}
+	.autobus_info {
+		width: 350px;
+		height: 370px;
+	}
+	table, th, td {
+		border: 5px solid gray;
+		border-collapse: collapse;
+		width: 400px;
+		height: 45px;
+	}
+	h1 {
+		margin-left: 110px;
+	}
+	.me {
+		text-decoration: none;
+	}
+</style>
+<body ng-app="" ng-init="admin='admin'; user='user'" ng-init="showing_about=false">
+	<div class="form" ng-hide="showing">
+		<form>
+			<input class="input_form" type="text" ng-model="login" placeholder="Login"><br>
+			<input class="input_form" type="password" ng-model="password" placeholder="Password"><br>
+			<button ng-disabled="(!login || !password || login!=user || password!=user) && (!login || !password || login!=admin || password!=admin)" ng-click="showing=true">Войти</button>
+		</form>
+	</div>
+	<div class="menu">
+		<nav class="{{active}}" ng-click="$event.preventDefault()" ng-show="showing">
+			<a href="#" class="nav" ng-click="showing_about=false">Маршруты</a>
+			<a href="#" class="nav" ng-click="showing_about=true">О нас</a>
+			<a href="#" class="nav" ng-click="showing=false">Выход</a>
+		</nav>
+	</div>
+	<div ng-hide="showing_about">
+		<div class="autobus" ng-show="showing">
+			<br><h3 align="center">Автобусы</h3><br>
+			<p><input type="radio" ng-model="autobus" value="2">2 автобус
+			<input type="radio" ng-model="autobus" value="4">4 автобус
+			<input type="radio" ng-model="autobus" value="5">5 автобус
+			<input type="radio" ng-model="autobus" value="9">9 автобус
+			<input type="radio" ng-model="autobus" value="10">10 автобус</p>
+		</div>
+	</div>
+	<div ng-hide="showing_about">
+		<div ng-switch="autobus">
+			<div ng-show="showing" ng-switch-when="2">
+				<img class="map" src="https://sun9-55.userapi.com/um_XWyNMg9_y2MkHmk0PqXbThhkOJf4KoZ-T2A/pLeHgerGW-Y.jpg">
+				<div class="autobus_time">
+					<table>
+						<tr>
+							<th colspan="2">Автобус 2</th>
+						</tr>
+						<tr>
+							<th colspan="2">УЛ. ВАСИЛЕ АЛЕКСАНДРИ - Г. КРИКОВА</th>
+						</tr>
+						<tr>
+							<td>Цена</td>
+							<td>4.5 MDL</td>
+						</tr>
+						<tr>
+							<td>Расстояние</td>
+							<td>16.38 км</td>
+						</tr>
+						<tr>
+							<td>Интервал</td>
+							<td>13-30 мин</td>
+						</tr>
+						<tr>
+							<td>Рабочие дни</td>
+							<td>Пн Вт Ср Чт Пт Сб Вс</td>
+						</tr>
+						<tr>
+							<td>Время работы</td>
+							<td>05:15 - 23:18</td>
+						</tr>
+						<tr>
+							<td>Перевозчик</td>
+							<td>МП "Городской автобусный парк"</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div ng-show="showing" ng-switch-when="4">
+				<img class="map" src="https://sun9-19.userapi.com/tpaWqu-RhoCXc2NbamF4IiTB1KRgHsrC98fhMw/Aisbk1iCw1c.jpg">
+				<div class="autobus_time">
+					<table>
+						<tr>
+							<th colspan="2">Автобус 4</th>
+						</tr>
+						<tr>
+							<th colspan="2">УЛ. КУЗА-ВАДЭ - БАЧОЙ</th>
+						</tr>
+						<tr>
+							<td>Цена</td>
+							<td>4 MDL</td>
+						</tr>
+						<tr>
+							<td>Расстояние</td>
+							<td>16.62 км</td>
+						</tr>
+						<tr>
+							<td>Интервал</td>
+							<td>20-60 мин</td>
+						</tr>
+						<tr>
+							<td>Рабочие дни</td>
+							<td>Пн Вт Ср Чт Пт Сб Вс</td>
+						</tr>
+						<tr>
+							<td>Время работы</td>
+							<td>05:20 - 22:26</td>
+						</tr>
+						<tr>
+							<td>Перевозчик</td>
+							<td>МП "Городской автобусный парк"</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div ng-show="showing" ng-switch-when="5">
+				<img class="map" src="https://sun9-43.userapi.com/hQJVl87AhuumgI4Xc2M6LUNROMURMGoeQAjwjA/K4g789Qoa0Y.jpg">
+				<div class="autobus_time">
+					<table>
+						<tr>
+							<th colspan="2">Автобус 5</th>
+						</tr>
+						<tr>
+							<th colspan="2">УЛ. КУЗА-ВАДЭ - БАЧОЙ</th>
+						</tr>
+						<tr>
+							<td>Цена</td>
+							<td>3 MDL</td>
+						</tr>
+						<tr>
+							<td>Расстояние</td>
+							<td>19.24 км</td>
+						</tr>
+						<tr>
+							<td>Интервал</td>
+							<td>15-30 мин</td>
+						</tr>
+						<tr>
+							<td>Рабочие дни</td>
+							<td>Пн Вт Ср Чт Пт Сб Вс</td>
+						</tr>
+						<tr>
+							<td>Время работы</td>
+							<td>06:00 - 22:40</td>
+						</tr>
+						<tr>
+							<td>Перевозчик</td>
+							<td>МП "Городской автобусный парк"</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div ng-show="showing" ng-switch-when="9">
+				<img class="map" src="https://sun9-43.userapi.com/gVzM3Rxt8lzykydNq3zk5DC2CmN3eKiyjlsujA/2ENSbci9noA.jpg">
+				<div class="autobus_time">
+					<table>
+						<tr>
+							<th colspan="2">Автобус 9</th>
+						</tr>
+						<tr>
+							<th colspan="2">УЛ. КУЗА-ВАДЭ - БАЧОЙ</th>
+						</tr>
+						<tr>
+							<td>Цена</td>
+							<td>3 MDL</td>
+						</tr>
+						<tr>
+							<td>Расстояние</td>
+							<td>13.29 км</td>
+						</tr>
+						<tr>
+							<td>Интервал</td>
+							<td>22-45 мин</td>
+						</tr>
+						<tr>
+							<td>Рабочие дни</td>
+							<td>Пн Вт Ср Чт Пт Сб Вс</td>
+						</tr>
+						<tr>
+							<td>Время работы</td>
+							<td>06:00 - 19:18</td>
+						</tr>
+						<tr>
+							<td>Перевозчик</td>
+							<td>МП "Городской автобусный парк"</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div ng-show="showing" ng-switch-when="10">
+				<img class="map" src="https://sun9-69.userapi.com/7_fhUCvOJNkHwwmUCoytTaRN0TGUG2UPjRxOxw/--GBNFzwqNI.jpg">
+				<div class="autobus_time">
+					<table>
+						<tr>
+							<th colspan="2">Автобус 10</th>
+						</tr>
+						<tr>
+							<th colspan="2">УЛ. КУЗА-ВАДЭ - БАЧОЙ</th>
+						</tr>
+						<tr>
+							<td>Цена</td>
+							<td>3 MDL</td>
+						</tr>
+						<tr>
+							<td>Расстояние</td>
+							<td>11.54 км</td>
+						</tr>
+						<tr>
+							<td>Интервал</td>
+							<td>30-60 мин</td>
+						</tr>
+						<tr>
+							<td>Рабочие дни</td>
+							<td>Пн Вт Ср Чт Пт Сб Вс</td>
+						</tr>
+						<tr>
+							<td>Время работы</td>
+							<td>06:30 - 21:56</td>
+						</tr>
+						<tr>
+							<td>Перевозчик</td>
+							<td>МП "Городской автобусный парк"</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-hide="!showing">
+		<div class="about" ng-show="showing_about">
+			<p><h1>Доставим быстро и дешево))!!</h1></p>
+			<img src="https://cs10.pikabu.ru/post_img/2019/08/13/4/1565672983144338884.jpg">
+			<p>Работу выполнил <a class="me" href="https://github.com/Gheorghi-Glavcev/FDAW" target="_blank">Glavcev Gheorghi</a> IA1802</p>
+		</div>
+	</div>
+
+</body>
+</html>
